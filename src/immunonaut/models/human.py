@@ -1,79 +1,117 @@
 # src/immunonaut/models/human.py
 from random import uniform
-from typing import List, Protocol, TypeAlias, Tuple, Union
+from typing import List, Protocol
 
 from immunonaut.cell_types import (Abundance, CellType, Granulocyte,
                                    Lymphocyte, Monocyte)
 
-from immunonaut.mapping import HUMAN
+# Protocols
+class ImmunityProtocol(Protocol):
+    abundance_range: Abundance = (0.00, 0.00)
+    population: List[CellType] = []
 
 class ImmuneSystem:
     def __init__(
             self,
-            basophils: (List[Granulocyte.Basophil], Abundance) = ([],(0.005, 0.01)),
             cell_count: int = 1000,
-            dendritic_cells: (List[Monocyte.Dendritic], Abundance) = (
-                    [], (0.0016, 0.0068)
-            ),
-            eosinophils: (List[Granulocyte.Eosinophil], Abundance) = ([], (0.01, 0.04)),
-            macrophages: (List[Monocyte.Macrophage], Abundance) = ([], (0.0, 0.0)),
-            monocytes: (List[Monocyte], Abundance) = ([], (0.02, 0.08)),
-            neutrophils: (List[Granulocyte.Neutrophil], Abundance) = ([], (0.4, 0.6)),
             immunocompetent: bool = True
     ) -> None:
-        self.basophils = basophils
         self.cell_count = cell_count
-        self.dendritic_cells = dendritic_cells
-        self.eosinophils = eosinophils
-        self.macrophages = macrophages
-        self.monocytes = monocytes
-        self.neutrophils = neutrophils
+        self.populations = Populations()
+        self.granulocytes = self.populations.granulocytes
+        self.basophils = self.populations.basophils
+        self.eosinophils = self.populations.eosinophils
+        self.neutrophils = self.populations.neutrophils
+        self.monocytes = self.populations.monocytes
+        self.dendritic_cells = self.populations.dendritic_cells
+        self.macrophages = self.populations.macrophages
         self.immunocompetent = immunocompetent
 
-        # Determining initial WBC counts
-        self.basophil_population = self.basophils[0]
-        self.basophil_range = (self.basophils[1][0], self.basophils[1][1])
-        self.basophil_abundance = uniform(self.basophil_range[0], self.basophil_range[1])
-        self.basophils_absolute = int(self.basophil_abundance * self.cell_count)
-
-        self.dendritic_cell_population = self.dendritic_cells[0]
-        self.dendritic_cell_range = (self.dendritic_cells[1][0], self.dendritic_cells[1][1])
-        self.dendritic_cell_abundance = uniform(self.dendritic_cell_range[0], self.dendritic_cell_range[1])
-        self.dendritic_cell_absolute = int(self.dendritic_cell_abundance * self.cell_count)
-
-        self.eosinophil_population = self.eosinophils[0]
-        self.eosinophil_range = (self.eosinophils[1][0], self.eosinophils[1][1])
-        self.eosinophil_abundance = uniform(self.eosinophil_range[0], self.eosinophil_range[1])
-        self.eosinophils_absolute = int(self.eosinophil_abundance * self.cell_count)
-
-        self.macrophage_population = self.macrophages[0]
-        self.macrophage_range = (self.macrophages[1][0], self.macrophages[1][1])
-        self.macrophage_abundance = uniform(self.macrophage_range[0], self.macrophage_range[1])
-        self.macrophages_absolute = int(self.macrophage_abundance * self.cell_count)
-
-        self.monocyte_population = self.monocytes[0]
-        self.monocyte_range = (self.monocytes[1][0], self.monocytes[1][1])
-        self.monocyte_abundance = uniform(self.monocyte_range[0], self.monocyte_range[1]) - self.macrophage_abundance
-        self.monocytes_absolute = int(self.monocyte_abundance * self.cell_count)
-
-        self.neutrophil_population = self.neutrophils[0]
-        self.neutrophil_range = (self.neutrophils[1][0], self.neutrophils[1][1])
-        self.neutrophil_abundance = uniform(self.neutrophil_range[0], self.neutrophil_range[1])
-        self.neutrophils_absolute = int(self.neutrophil_abundance * self.cell_count)
-
-        # Initializing WBC populations
         if self.immunocompetent:
             try:
-                self.basophil_population.append([Granulocyte.Basophil() for i in range(self.basophils_absolute)])
-                self.dendritic_cell_population.append([Monocyte.Dendritic() for i in range(self.dendritic_cell_absolute)])
-                self.eosinophil_population.append([Granulocyte.Eosinophil() for i in range(self.eosinophils_absolute)])
-                self.macrophage_population.append([Monocyte.Macrophage() for i in range(self.macrophages_absolute)])
-                self.monocyte_population.append([Monocyte() for i in range(self.monocytes_absolute)])
-                self.neutrophil_population.append([Granulocyte.Neutrophil() for i in range(self.neutrophils_absolute)])
+                self.basophils.population = [
+                    Granulocyte.Basophil() for _ in range(round(self.basophils.abundance * self.cell_count))
+                ]
+                self.eosinophils.population = [
+                    Granulocyte.Eosinophil() for _ in range(round(self.eosinophils.abundance * self.cell_count))
+                ]
+                self.neutrophils.population = [
+                    Granulocyte.Neutrophil() for _ in range(round(self.neutrophils.abundance * self.cell_count))
+                ]
+                self.monocytes.population = [
+                    Monocyte() for _ in range(round(self.monocytes.abundance * self.cell_count))
+                ]
+                self.dendritic_cells.population = [
+                    Monocyte.Dendritic() for _ in range(round(self.dendritic_cells.abundance * self.cell_count))
+                ]
+                self.macrophages.population = [
+                    Monocyte.Macrophage() for _ in range(round(self.macrophages.abundance * self.cell_count))
+                ]
             except ValueError as e:
-                print("Error: ", e)
+                print("Improper value passed to some caller in the WBC initialization block: ", e)
             except Exception as e:
                 print("Error: ", e)
+
+
+class Populations:
+    def __init__(self):
+        self.granulocytes = Granulocytes()
+        self.basophils = self.granulocytes.Basophils()
+        self.eosinophils = self.granulocytes.Eosinophils()
+        self.neutrophils = self.granulocytes.Neutrophils()
+        self.monocytes = Monocytes()
+        self.dendritic_cells = self.monocytes.DendriticCells()
+        self.macrophages = self.monocytes.Macrophages()
+        self.lymphocytes = Lymphocytes()
+        
+# Cell type population objects
+class Granulocytes(ImmunityProtocol):
+    def __init__(self) -> None:
+        self.abundance_range: Abundance = (0.0, 0.0)
+        self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+        self.population: [Granulocyte] = []
+
+    class Basophils(ImmunityProtocol):
+        def __init__(self) -> None:
+            self.abundance_range: Abundance = (0.005, 0.01)
+            self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+            self.population: [Granulocyte.Basophil | None] = []
+
+    class Eosinophils(ImmunityProtocol):
+        def __init__(self):
+            self.abundance_range: Abundance = (0.01, 0.04)
+            self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+            population: [Granulocyte.Eosinophil | None] = []
+
+    class Neutrophils(ImmunityProtocol):
+        def __init__(self):
+            self.abundance_range: Abundance = (0.4, 0.6)
+            self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+            self.population: [Granulocyte.Neutrophil | None] = []
+
+class Monocytes(ImmunityProtocol):
+    def __init__(self):
+        self.abundance_range: Abundance = (0.02, 0.08)
+        self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+        self.population: [Monocyte | None] = []
+
+    class DendriticCells(ImmunityProtocol):
+        def __init__(self):
+            self.abundance_range: Abundance = (0.0, 0.0)
+            self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+            self.population: [Monocyte.Dendritic | None] = []
+
+    class Macrophages(ImmunityProtocol):
+        def __init__(self):
+            self.abundance_range: Abundance = (0.0, 0.0)
+            self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+            self.population: [Monocyte.Macrophage | None] = []
+
+class Lymphocytes(ImmunityProtocol):
+    def __init__(self):
+        self.abundance_range: Abundance = (0.2, 0.4)
+        self.abundance: Abundance = uniform(self.abundance_range[0], self.abundance_range[1])
+        self.population: [Lymphocyte | None] = []
 
 def main() -> ImmuneSystem:
     immune_system = ImmuneSystem()
