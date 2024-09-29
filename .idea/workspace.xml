@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="714201a1-827a-4d6e-a382-ae235cf605e4" name="Changes" comment="Refactored `models.human` for clarity and concision">
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/__main__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/core/coretypes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/_protocols.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/antigens.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/cytokines.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/enzymes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/human_pathways.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/proteins.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/responses/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/responses/_protocols.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/immunonaut/responses/acute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/pathways/mapping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/models/human.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/models/human.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/pathways.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/targets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/pathways/targets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/immunonaut/pathways/cytokines.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/pathways/cytokines.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +28,7 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="SIGN_OFF_COMMIT" value="true" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -199,7 +182,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

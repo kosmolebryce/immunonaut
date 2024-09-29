@@ -2,7 +2,6 @@
 from collections import deque
 from dataclasses import dataclass
 from typing import List, Protocol
-
 from immunonaut.pathways.human_pathways import HumanPathways
 from immunonaut.pathways._protocols import Pathway, SignalingPathway
 
