@@ -1,4 +1,4 @@
-# src/immunonaut/models/human.py
+# src/immunonaut/models/_protocols.py
 from random import uniform
 from typing import List, Protocol
 

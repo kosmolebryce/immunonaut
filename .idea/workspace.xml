@@ -4,17 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="714201a1-827a-4d6e-a382-ae235cf605e4" name="Changes" comment="Extended the human model; added lymphocytes">
+    <list default="true" id="714201a1-827a-4d6e-a382-ae235cf605e4" name="Changes" comment="Refactored `models.human` for clarity and concision">
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/core/coretypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/_protocols.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/antigens.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/cytokines.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/enzymes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/human_pathways.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/pathways/proteins.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/responses/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/responses/_protocols.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/immunonaut/responses/acute.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/immunonaut/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/immunonaut/mapping.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/pathways/mapping.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/immunonaut/models/human.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/models/human.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/immunonaut/pathways.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/immunonaut/targets.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/pathways/targets.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -40,6 +61,9 @@
     &quot;accountId&quot;: &quot;02336d55-8661-488a-a8a4-caff06b1811a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Library/Caches/JetBrains/PyCharm2024.2/python_stubs/1243336500/builtins.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -70,7 +94,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/immunonaut/pathways" />
       <recent name="$PROJECT_DIR$/src/immunonaut" />
+      <recent name="$PROJECT_DIR$/src/immunonaut/models" />
     </key>
   </component>
   <component name="RunManager">
@@ -117,7 +143,10 @@
       <workItem from="1726796480330" duration="14790000" />
       <workItem from="1726879134821" duration="21094000" />
       <workItem from="1726940239682" duration="8865000" />
-      <workItem from="1726949736953" duration="18000" />
+      <workItem from="1726949736953" duration="264000" />
+      <workItem from="1727120825349" duration="12268000" />
+      <workItem from="1727465557594" duration="20953000" />
+      <workItem from="1727580621216" duration="8583000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit!">
       <option name="closed" value="true" />
@@ -151,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726902818941</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactored `models.human` for clarity and concision">
+      <option name="closed" value="true" />
+      <created>1726949790338</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726949790338</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +209,8 @@
     <MESSAGE value="Initial commit!" />
     <MESSAGE value="Initial commit!&#10;&#10;Signed-off-by: kosmolebryce &lt;k.lebryce@pm.me&gt;" />
     <MESSAGE value="Extended the human model; added lymphocytes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extended the human model; added lymphocytes" />
+    <MESSAGE value="Refactored `models.human` for clarity and concision" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored `models.human` for clarity and concision" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/immunonaut$main.coverage" NAME="main Coverage Results" MODIFIED="1726806994235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
