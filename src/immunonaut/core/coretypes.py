@@ -45,6 +45,7 @@ class UniProtEntity:
     function: Optional[str] = None
     subcellular_locations: List[str] = field(default_factory=list)
     raw_data: Dict[str, Any] = field(default_factory=dict)
+    genes: List[str] = field(default_factory=list)
 
     @classmethod
     def from_uniprot(cls, uniprot_id: str):
@@ -63,7 +64,8 @@ class UniProtEntity:
             function=next((comment['texts'][0]['value'] for comment in data.get('comments', [])
                            if comment['commentType'] == 'FUNCTION'), None),
             subcellular_locations=[location['location']['value'] for location in data.get('subcellularLocations', [])],
-            raw_data=data
+            raw_data=data,
+            genes=[gene['geneName']['value'] for gene in data.get('genes', [])]
         )
 
 

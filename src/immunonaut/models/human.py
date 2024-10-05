@@ -117,5 +117,7 @@ def main() -> ImmuneSystem:
     immune_system = ImmuneSystem()
     return immune_system
 
+# TODO: Model adaptive immune system.
+
 if __name__ == '__main__':
     main()
