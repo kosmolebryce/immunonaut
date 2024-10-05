@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "immunonaut"
-version = "0.0.1a2"
+version = "0.0.1a3"
 description = "Tools for immunochemical analysis"
 authors = ["kosmolebryce <k.lebryce@pm.me>"]
 license = "AGPL-3.0"

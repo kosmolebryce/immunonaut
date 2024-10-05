@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="714201a1-827a-4d6e-a382-ae235cf605e4" name="Changes" comment="Added tags">
-      <change beforePath="$PROJECT_DIR$/.idea/immunonaut.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/immunonaut.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/core/coretypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/core/coretypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/immunonaut/models/human.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/immunonaut/models/human.py" afterDir="false" />
+    <list default="true" id="714201a1-827a-4d6e-a382-ae235cf605e4" name="Changes" comment="Added `coretypes`.">
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +139,7 @@
       <workItem from="1727619773565" duration="5402000" />
       <workItem from="1727994811494" duration="5000" />
       <workItem from="1728141821555" duration="41000" />
+      <workItem from="1728143262241" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit!">
       <option name="closed" value="true" />
@@ -191,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727590976719</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added `coretypes`.">
+      <option name="closed" value="true" />
+      <created>1728143309799</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728143309799</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +232,8 @@
     <MESSAGE value="Extended the human model; added lymphocytes" />
     <MESSAGE value="Refactored `models.human` for clarity and concision" />
     <MESSAGE value="Added tags" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tags" />
+    <MESSAGE value="Added `coretypes`." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `coretypes`." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/immunonaut$main.coverage" NAME="main Coverage Results" MODIFIED="1726806994235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
