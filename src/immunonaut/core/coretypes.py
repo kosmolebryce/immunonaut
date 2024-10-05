@@ -56,16 +56,27 @@ class UniProtEntity:
 
         data = response.json()
 
+        try:
+            name = data['proteinDescription']['recommendedName']['fullName']['value']
+        except KeyError:
+            name = None
+
+        try:
+            genes = [gene['geneName']['value'] for gene in data.get('genes', [])]
+        except KeyError as e:
+            genes = None
+
         return cls(
+            name=name,
+            genes=genes,
             uniprot_id=uniprot_id,
-            name=data['proteinDescription']['recommendedName']['fullName']['value'],
+            uniprot_kbid=data["uniProtkbId"],
             sequence=data['sequence']['value'],
             organism=data['organism']['scientificName'],
             function=next((comment['texts'][0]['value'] for comment in data.get('comments', [])
                            if comment['commentType'] == 'FUNCTION'), None),
             subcellular_locations=[location['location']['value'] for location in data.get('subcellularLocations', [])],
             raw_data=data,
-            genes=[gene['geneName']['value'] for gene in data.get('genes', [])]
         )
 
 
